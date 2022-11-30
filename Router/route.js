@@ -1,7 +1,7 @@
 import userServices from "../Services/userServices.js";
 import Middleware from "../middleware/joiMiddleware.js";
-import Validation from "../middleware/authMiddleware.js"
-import bodyparser from 'express'
+import Validation from "../middleware/authMiddleware.js";
+import bodyparser from 'express';
 
 
 const Route=(app)=>{
@@ -11,7 +11,7 @@ const Route=(app)=>{
     app.post('/login',Middleware.JoiMiddleware,userServices.login);
     app.get('/profile',Validation.authValidation,userServices.profile);
     app.put('/update',Validation.authValidation,userServices.update);
-    app.delete('/delete',Validation.authValidation,userServices.deleted)
+    app.delete('/delete',Validation.authValidation,userServices.delete)
 }
 
 
