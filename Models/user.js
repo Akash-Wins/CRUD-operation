@@ -1,34 +1,38 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
-import bcrypt from "bcrypt"
-const userSchema =new Schema({
-    firstName:{
-        type: String,
-        required:false
-    },
-    lastName:{
-        type: String,
-        required:false
-    },
-    email:{
-        type: String,
-        required:false,
-        unique:true
-    },
-    password:{
-        type:String,
-        required:false
-    }
-})
+import bcrypt from "bcrypt";
+const { softDeletePlugin } = require('soft-delete-plugin-mongoose');
+const userSchema = new Schema({
+  firstName: {
+    type: String,
+    required: false,
+  },
+  lastName: {
+    type: String,
+    required: false,
+  },
+  email: {
+    type: String,
+    required: false,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: false,
+  },
+},{timestamps:true});
 
-userSchema.pre("save", async next => {
+userSchema.pre("save", async function (next) {
   try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    return next();
-  } catch (error) {
-    return next(error);
+    const savedPassword = await bcrypt.hash(this.password, 10);
+    this.password = savedPassword;
+    next();
+  } catch {
+    next(error);
   }
 });
-let _user =mongoose.model("user",userSchema)
+
+userSchema.plugin(softDeletePlugin);
+let _user = mongoose.model("user", userSchema);
 export default _user;
+
