@@ -9,15 +9,25 @@ class Middleware {
     let method = req.method.toLowerCase();
 
     let schema = validationHelper(route, method);
+    console.log(schema)
     const { error } = schema.validate(req.body, { abortEarly: false });
     if (error) {
-      return responseHelper.error(res, {
-        message: MESSAGE.VALIDATION_ERROR,
-        payload: error.details,
-      });
+      let Validation_error = error.details.map((err)=>{
+        let userError ={};
+        Object.assign(userError,{message:err.message.replace(/[\,"]/g,' '),path:err.path.toString()});
+        return userError;
+      })
+        let payload={
+          message: MESSAGE.VALIDATION_ERROR,
+          payload: Validation_error,
+        }
+       return responseHelper.error(res,payload);
     }
     next();
   }
 }
 
 export default new Middleware();
+
+
+

@@ -3,6 +3,7 @@ import Response from "../helpers/responseHelper.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import MESSAGE from "../helpers/messageHelper";
+
 class userServices {
   async adduser(req, res) {
     try{
@@ -16,14 +17,13 @@ class userServices {
     let myUser = new _user(req.body);
     myUser.save()
         let resPayload = {
-          message: MESSAGE.USER,
+          message: MESSAGE.REGISTER_SUCCESSFULLY,
         };
         return Response.success(res, resPayload);
     }
     catch (err) {
       let resPayload = {
-        message: err.message,
-        payload: {},
+        message: err.message
       };
       return Response.error(res, resPayload);
     }
@@ -40,7 +40,7 @@ class userServices {
       }
       if (check.isDeleted == true) {
         let resPayload = {
-          message: MESSAGE.NOT_EXIST,
+          message: MESSAGE.USER_NOT_EXIST,
         };
         return Response.error(res, resPayload);
       }
@@ -51,7 +51,7 @@ class userServices {
         };
         return Response.error(res, resPayload);
       }
-      const token = jwt.sign({ _id: check._id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ _id: check._id }, process.env.JWT_SECRET,{expiresIn:"1h"});
       let resPayload = {
         message: MESSAGE.LOGIN_SUCCESS,
         payload: { token: token },
@@ -96,7 +96,7 @@ class userServices {
         return Response.error(res, resPayload);
       }
       const updateId = req.user._id;
-      const user = await _user.findByIdAndUpdate(updateId, req.body)
+      const user = await _user.findByIdAndUpdate(updateId, req.body,{new:true})
       .select("firstName lastName email");
       let resPayload = {
         message: MESSAGE.PROFILE_UPDATED,
@@ -105,7 +105,7 @@ class userServices {
       return Response.success(res, resPayload);
     } catch (err) {
       let resPayload = {
-        message: MESSAGE.CATCH_ERROR,
+        message: MESSAGE.SERVER_ERROR,
       };
       return Response.error(res, resPayload);
     }
@@ -125,17 +125,20 @@ class userServices {
         .findByIdAndUpdate(deleteId, { isDeleted: true })
         .then((value) => {
           let resPayload = {
-            message: MESSAGE.DELETE,
+            message: MESSAGE.USER_RECORD_DELETED,
             payload: value.details,
           };
           return Response.success(res, resPayload);
         });
     } catch (err) {
       let resPayload = {
-        message: MESSAGE.CATCH_ERROR,
+        message: err.message,
       };
       return Response.error(res, resPayload);
     }
   }
+
 }
 export default new userServices();
+
+

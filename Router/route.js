@@ -10,8 +10,9 @@ const Route=(app)=>{
     app.post('/register',Middleware.JoiMiddleware, userServices.adduser);
     app.post('/login',Middleware.JoiMiddleware,userServices.login);
     app.get('/profile',Validation.authValidation,userServices.profile);
-    app.put('/update',Validation.authValidation,userServices.update);
-    app.delete('/delete',Validation.authValidation,userServices.delete)
+    app.put('/update',Middleware.JoiMiddleware,Validation.authValidation,userServices.update);
+    app.delete('/delete',Validation.authValidation,userServices.delete);
+    //app.post("/single", upload.array("profile", 10))
 }
 
 

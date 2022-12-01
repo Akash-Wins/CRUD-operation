@@ -21,10 +21,10 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
-    isDeleted: {
-      type: Boolean,
-      default: false,
-    },
+    // isDeleted: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
   { timestamps: true }
 );
@@ -54,3 +54,5 @@ userSchema.pre("findOneAndUpdate", async function (next) {
 userSchema.plugin(softDeletePlugin);
 let _user = mongoose.model("user", userSchema);
 export default _user;
+
+
