@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# CRUD OPERATION API (Link & Working)
-=======
 # CRUD OPERATION API(Link & Working)
->>>>>>> abfc3258c28ba150c35f2f2fb85f95e3b194363c
 
   >>USER REGISTER :POST API -- http://127.0.0.1:3100/register 
   
@@ -16,8 +12,6 @@
  
     
 ## PROJECT RUN COMMAND
-<<<<<<< HEAD
-
 Step1 - npm i
 
 Step2 - npm start
@@ -57,10 +51,6 @@ bcrypt   -5.1.0
 jwt      -8.5.1
 
 nodemon  -2.0.20
-=======
-* step1 - npm i
-
-* step2 - npm start
 
 ## SETUP ENVIROMENT
 * npm install i -------------------node module install
@@ -97,7 +87,6 @@ nodemon  -2.0.20
 * jwt      - 8.5.1
 
 * nodemon  - 2.0.20
->>>>>>> abfc3258c28ba150c35f2f2fb85f95e3b194363c
 
 ## DISCRIPTION OF PACKAGE
 
