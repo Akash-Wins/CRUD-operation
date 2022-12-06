@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 import bcrypt from "bcrypt";
-const { softDeletePlugin } = require("soft-delete-plugin-mongoose");
+import { addressSchema } from "./address";
 const userSchema = new Schema(
   {
     firstName: {
@@ -21,10 +21,11 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
-    // isDeleted: {
-    //   type: Boolean,
-    //   default: false,
-    // },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+    address:addressSchema
   },
   { timestamps: true }
 );
@@ -51,7 +52,7 @@ userSchema.pre("findOneAndUpdate", async function (next) {
   }
 });
 
-userSchema.plugin(softDeletePlugin);
+
 let _user = mongoose.model("user", userSchema);
 export default _user;
 

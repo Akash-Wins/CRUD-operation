@@ -12,8 +12,7 @@ const Route=(app)=>{
     app.get('/profile',Validation.authValidation,userServices.profile);
     app.put('/update',Middleware.JoiMiddleware,Validation.authValidation,userServices.update);
     app.delete('/delete',Validation.authValidation,userServices.delete);
-    //app.post("/single", upload.array("profile", 10))
+    app.post("/upload",userServices.multerServices);
 }
-
 
 export default Route;

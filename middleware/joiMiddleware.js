@@ -9,7 +9,6 @@ class Middleware {
     let method = req.method.toLowerCase();
 
     let schema = validationHelper(route, method);
-    console.log(schema)
     const { error } = schema.validate(req.body, { abortEarly: false });
     if (error) {
       let Validation_error = error.details.map((err)=>{

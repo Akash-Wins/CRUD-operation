@@ -3,6 +3,7 @@ import Response from "../helpers/responseHelper.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import MESSAGE from "../helpers/messageHelper";
+import uploadFile from "../helpers/uploadFileHelper.js";
 
 class userServices {
   async adduser(req, res) {
@@ -14,6 +15,7 @@ class userServices {
       };
       return Response.error(res, resPayload);
     }
+      
     let myUser = new _user(req.body);
     myUser.save()
         let resPayload = {
@@ -71,7 +73,6 @@ class userServices {
       const profileID = req.user._id;
       const user = await _user
         .findById(profileID)
-        .select("firstName lastName email");
       let resPayload = {
         message: MESSAGE.PROFILE,
         payload: user,
@@ -88,14 +89,16 @@ class userServices {
 
   async update(req, res) {
     try {
-      let email = await _user.findOne({ email: req.body.email });
-      if (email) {
+      const updateId = req.user._id;
+      let email = await _user.findOne({ email: req.body.email});
+      //console.log(updateId);
+      console.log(email._id!=updateId) 
+      if (email._id!=updateId) {
         let resPayload = {
           message: MESSAGE.EMAIl_ERROR,
         };
         return Response.error(res, resPayload);
       }
-      const updateId = req.user._id;
       const user = await _user.findByIdAndUpdate(updateId, req.body,{new:true})
       .select("firstName lastName email");
       let resPayload = {
@@ -138,7 +141,23 @@ class userServices {
     }
   }
 
+ async multerServices(req, res) {
+  await uploadFile(req, res, (err) => {
+    if (err) {
+      //res.send(err);
+      res.status(500).send({
+        message: MESSAGE.IMAGE_UPLOAD_FAILED,
+      });
+    } else {
+      res.status(200).send({
+        message: MESSAGE.IMAGE_UPLOAD_SUCCESSFULLY,
+      });
+      // res.send(req.files)
+    }
+  });
+  }
 }
 export default new userServices();
+
 
 

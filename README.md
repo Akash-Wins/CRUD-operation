@@ -1,37 +1,59 @@
-#CRUD OPERATION API(Link & Working)
+# CRUD OPERATION API (Link & Working)
+
   >>USER REGISTER :POST API -- http://127.0.0.1:3100/register 
+  
   >>USER LOGIN : POST API -- http://127.0.0.1:3100/login
+  
   >>USER PROFILE : GET API -- http://127.0.0.1:3100/profile
+  
   >>USER DETAILS UPDATE : PUT API -- http://127.0.0.1:3100/update 
+  
   >>USER DELETE : DELETE API --  http://127.0.0.1:3100/delete
  
     
-#PROJECT RUN COMMAND
-step1 - npm i
-step2 - npm start
+## PROJECT RUN COMMAND
 
-#SETUP ENVIROMENT
+Step1 - npm i
+
+Step2 - npm start
+
+## SETUP ENVIROMENT
 npm install i -------------------node module install
+
 npm install express -------------express package install
+
 npm install mongoose ------------mongoose package install
+
 npm install dotenv --------------dotenv package install
+
 npm install joi -----------------joi package install
+
 npm install bcrypt --------------bcrypt package install
+
 npm install express-jwt ---------jwt(jsonwebtoken) package install
+
 npm install nodemon -------------nodemon install
 
-#All Version 
+## All Version 
 node     -16.0.0
+
 express  -4.18.2
+
 mongodb  -3.6.8
+
 mongoose -6.7.3
+
 dotenv   -16.0.3
+
 joi      -17.7.0
+
 bcrypt   -5.1.0
+
 jwt      -8.5.1
+
 nodemon  -2.0.20
 
-#DISCRIPTION OF PACKAGE
+## DISCRIPTION OF PACKAGE
 
 express -> Express is a node js web application framework that provides broad features for building web and mobile applications. It is used to build a single page, multipage, and hybrid web application.
 

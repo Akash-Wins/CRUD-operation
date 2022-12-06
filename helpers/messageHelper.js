@@ -15,5 +15,7 @@ const MESSAGE = {
   DELETE_ERROR: "NOT DELETE",
   RECORD_NOT: "Record not found",
   VALIDATION_ERROR: "Not Valid",
+  IMAGE_UPLOAD_SUCCESSFULLY:"Image uploaded successfully",
+  IMAGE_UPLOAD_FAILED:"Image upload failed"
 };
 export default MESSAGE;
