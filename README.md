@@ -52,42 +52,6 @@
 
 * nodemon  -2.0.20
 
-## SETUP ENVIROMENT
-* npm install i -------------------node module install
-
-* npm install express -------------express package install
-
-* npm install mongoose ------------mongoose package install
-
-* npm install dotenv --------------dotenv package install
-
-* npm install joi -----------------joi package install
-
-* npm install bcrypt --------------bcrypt package install
-
-* npm install express-jwt ---------jwt(jsonwebtoken) package install
-
-* npm install nodemon -------------nodemon install
-
-## All Version 
-* node     - 16.0.0
-
-* express  - 4.18.2
-
-* mongodb  - 3.6.8
-
-* mongoose - 6.7.3
-
-* dotenv   - 16.0.3
-
-* joi      - 17.7.0
-
-* bcrypt   - 5.1.0
-
-* jwt      - 8.5.1
-
-* nodemon  - 2.0.20
-
 ## DISCRIPTION OF PACKAGE
 
 * #### Express
