@@ -34,23 +34,23 @@
 * npm install nodemon -------------nodemon install
 
 ## All Version 
-* node     -16.0.0
+* node     - 16.0.0
 
-* express  -4.18.2
+* express  - 4.18.2
 
-* mongodb  -3.6.8
+* mongodb  - 3.6.8
 
-* mongoose -6.7.3
+* mongoose - 6.7.3
 
-* dotenv   -16.0.3
+* dotenv   - 16.0.3
 
-* joi      -17.7.0
+* joi      - 17.7.0
 
-* bcrypt   -5.1.0
+* bcrypt   - 5.1.0
 
-* jwt      -8.5.1
+* jwt      - 8.5.1
 
-* nodemon  -2.0.20
+* nodemon  - 2.0.20
 
 ## DISCRIPTION OF PACKAGE
 
