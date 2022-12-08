@@ -25,7 +25,7 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    address:addressSchema
+    address:addressSchema,
   },
   { timestamps: true }
 );

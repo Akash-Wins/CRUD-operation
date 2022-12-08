@@ -21,11 +21,11 @@ const userUpdate = joi.object({
   email: joi.string().email().min(5).trim(),
   password: joi.string().min(5).max(20).trim(),
   address:joi.object({
-    houseNo : joi.string().max(6).trim().required(),
-    city: joi.string().max(15).trim().required(),
-    state: joi.string().max(15).trim().required(),
-    pincode: joi.string().max(15).trim().required(),
-    country: joi.string().max(20).trim().required()
+    houseNo : joi.string().max(6).trim(),
+    city: joi.string().max(15).trim(),
+    state: joi.string().max(15).trim(),
+    pincode: joi.string().max(15).trim(),
+    country: joi.string().max(20).trim()
   })
 });
 
@@ -38,6 +38,11 @@ const userDelete = joi.object({
   firstName: joi.string().min(5).max(15).trim().required(),
   lastName: joi.string().min(5).max(15).trim().required(),
 });
+
+const quoteSchema = joi.object({
+  title:joi.string().min(3).max(15).trim().required(),
+  by:joi.string().min(3).max(15).trim().required(),
+})
 const validationHelper = (route, method) => {
   let obj = {};
   switch (method) {
@@ -45,6 +50,8 @@ const validationHelper = (route, method) => {
       obj = {
         "/register": userSchema,
         "/login": userLogin,
+        "/quote":quoteSchema,
+        "/quotegetdemo":userSchema
       };
       return obj[route];
       break;

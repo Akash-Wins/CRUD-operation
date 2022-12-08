@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# CRUD OPERATION API (Link & Working)
-=======
 # CRUD OPERATION API(Link & Working)
->>>>>>> abfc3258c28ba150c35f2f2fb85f95e3b194363c
 
   >>USER REGISTER :POST API -- http://127.0.0.1:3100/register 
   
@@ -16,51 +12,9 @@
  
     
 ## PROJECT RUN COMMAND
-<<<<<<< HEAD
+* Step1 - npm i
 
-Step1 - npm i
-
-Step2 - npm start
-
-## SETUP ENVIROMENT
-npm install i -------------------node module install
-
-npm install express -------------express package install
-
-npm install mongoose ------------mongoose package install
-
-npm install dotenv --------------dotenv package install
-
-npm install joi -----------------joi package install
-
-npm install bcrypt --------------bcrypt package install
-
-npm install express-jwt ---------jwt(jsonwebtoken) package install
-
-npm install nodemon -------------nodemon install
-
-## All Version 
-node     -16.0.0
-
-express  -4.18.2
-
-mongodb  -3.6.8
-
-mongoose -6.7.3
-
-dotenv   -16.0.3
-
-joi      -17.7.0
-
-bcrypt   -5.1.0
-
-jwt      -8.5.1
-
-nodemon  -2.0.20
-=======
-* step1 - npm i
-
-* step2 - npm start
+* Step2 - npm start
 
 ## SETUP ENVIROMENT
 * npm install i -------------------node module install
@@ -97,7 +51,6 @@ nodemon  -2.0.20
 * jwt      - 8.5.1
 
 * nodemon  - 2.0.20
->>>>>>> abfc3258c28ba150c35f2f2fb85f95e3b194363c
 
 ## DISCRIPTION OF PACKAGE
 

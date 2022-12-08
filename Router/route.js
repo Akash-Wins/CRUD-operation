@@ -13,6 +13,9 @@ const Route=(app)=>{
     app.put('/update',Middleware.JoiMiddleware,Validation.authValidation,userServices.update);
     app.delete('/delete',Validation.authValidation,userServices.delete);
     app.post("/upload",userServices.multerServices);
+    app.post("/quote",Validation.authValidation,Middleware.JoiMiddleware,userServices.addQuoteUser)
+    app.get("/quotedata",Validation.authValidation,userServices.quoteDetail)
+    app.get("/quotegetdemo",userServices.quoteDemo)
 }
 
 export default Route;

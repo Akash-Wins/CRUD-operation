@@ -1,6 +1,5 @@
 class Response {
   success(res, data, statuscode = 200) {
-    console.log(data)
     let resPayload = {
       status: true,
       message: data.message,
