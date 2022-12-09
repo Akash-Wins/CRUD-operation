@@ -1,9 +1,15 @@
+import { nanoid } from 'nanoid'
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import { addressSchema } from "./address";
+
 const userSchema = new Schema(
   {
+    _id: {
+      type: String,
+      default: () => nanoid()
+    },
     firstName: {
       type: String,
       required: false,

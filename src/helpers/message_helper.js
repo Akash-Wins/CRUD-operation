@@ -15,9 +15,9 @@ const MESSAGE = {
   DELETE_ERROR: "NOT DELETE",
   RECORD_NOT: "Record not found",
   VALIDATION_ERROR: "Not Valid",
-  IMAGE_UPLOAD_SUCCESSFULLY:"Image uploaded successfully",
-  IMAGE_UPLOAD_FAILED:"Image upload failed",
-  QUOTE_ADD_SUCCESSFULLY:"Quote added successfully",
-  QUOTE_RECORD : "Here Your Quote Record"
+  IMAGE_UPLOAD_SUCCESSFULLY: "Image uploaded successfully",
+  IMAGE_UPLOAD_FAILED: "Image upload failed",
+  QUOTE_ADD_SUCCESSFULLY: "Quote added successfully",
+  QUOTE_RECORD: "Here Your Quote Record",
 };
 export default MESSAGE;

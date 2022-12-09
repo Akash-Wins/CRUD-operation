@@ -1,4 +1,4 @@
-import responseHelper from "../helpers/responseHelper.js";
+import responseHelper from "../helpers/response_helper";
 import jwt from "jsonwebtoken";
 
 class Validation {

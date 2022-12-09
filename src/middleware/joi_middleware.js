@@ -1,6 +1,6 @@
-import validationHelper from "../helpers/validationHelper.js";
-import responseHelper from "../helpers/responseHelper.js";
-import MESSAGE from "../helpers/messageHelper.js";
+import validationHelper from "../helpers/validation_helper.js";
+import responseHelper from "../helpers/response_helper.js";
+import MESSAGE from "../helpers/message_helper.js";
 class Middleware {
   JoiMiddleware(req, res, next) {
     // to get route from request

@@ -9,16 +9,15 @@ const multerStorage = multer.diskStorage({
   },
 });
 const multerFilter = (req, file, cb) => {
-  if(
-    file.mimetype.split("/")[1] === "jpg"||
-    file.mimetype.split("/")[1] === "jpeg"||
+  if (
+    file.mimetype.split("/")[1] === "jpg" ||
+    file.mimetype.split("/")[1] === "jpeg" ||
     file.mimetype.split("/")[1] === "png" ||
     file.mimetype.split("/")[1] === "pdf"
-    ) 
-  {
+  ) {
     cb(null, true);
   } else {
-    cb(null, false);
+    cb(new Error ("invalid"),false);
   }
 };
 const uploadFile = multer({
@@ -26,4 +25,4 @@ const uploadFile = multer({
   fileFilter: multerFilter,
 }).array("profile", 10);
 
-export default uploadFile
+export default uploadFile;

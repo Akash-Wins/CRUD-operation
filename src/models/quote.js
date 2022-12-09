@@ -1,16 +1,18 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
+import { nanoid } from "nanoid";
 const quoteSchema = new Schema({
+  _id: {
+    type: String,
+    default: () => nanoid()
+  },
   title: {
     type: String,
     required: false,
   },
-  by: {
-    type: String,
-    required: false,
-  },
   userId:{
-    type:Schema.Types.ObjectId,ref: 'User'
+    type: String,
+    required:true
   }
 });
 
